@@ -79,6 +79,7 @@
   .quote-result.show{background:#ffffff;border:1px solid #e3e8ee;border-radius:10px;padding:22px 26px;text-align:left;}
   .quote-result .quote-title{color:#0b1f3a;font-weight:700;margin-bottom:6px;}
   .quote-result .quote-price{color:#0d9488;font-weight:700;font-size:1.3rem;margin-bottom:8px;}
+  .quote-result .quote-breakdown{display:flex;flex-direction:column;gap:2px;font-size:.82rem;color:#5b6573;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #e3e8ee;}
   .quote-result .quote-note{color:#5b6573;font-size:.85rem;}
 
   /* Booking widget */
@@ -97,6 +98,7 @@
   .zip-result.show{display:block;}
   #zip-gate.hide{display:none;}
   .zip-recheck{margin:14px 0 0;font-size:.85rem;}
+  .deposit-note{margin:16px 0 0;font-size:.82rem;color:#5b6573;background:#f6f8fa;border-radius:8px;padding:10px 14px;}
   .zip-recheck a{color:#5b6573;text-decoration:underline;}
   .booking-paused{display:none;background:#ffffff;border:1px solid #e3e8ee;border-radius:10px;padding:36px 26px;text-align:center;}
   .booking-paused h3{color:#0b1f3a;font-size:1.2rem;margin-bottom:8px;}
@@ -296,12 +298,13 @@
           <h3>Great, we've got you covered!</h3>
           <p>Opens our live availability in a new tab — pick a time and you're booked.</p>
           <a class="btn" href="https://calendar.app.google/UiBS1gtw574KKV9w5" target="_blank" rel="noopener">Book an Appointment Online</a>
+          <p class="deposit-note">After booking, we'll text you a secure payment link to lock in your appointment with a small deposit.</p>
           <p class="zip-recheck"><a href="#" id="zip-recheck-link">Check a different zip code</a></p>
         </div>
 
         <div id="zip-out-of-area" class="zip-result">
           <h3>Looks like you're outside our service area</h3>
-          <p>We typically serve within about 18 miles of downtown Atlanta. Give us a call — depending on the job, we may still be able to help.</p>
+          <p>We typically serve within about 10 miles of downtown Atlanta. Give us a call — depending on the job, we may still be able to help.</p>
           <a class="btn" href="tel:+14043861377">Call or Text (404) 386-1377</a>
           <p class="zip-recheck"><a href="#" id="zip-recheck-link-2">Check a different zip code</a></p>
         </div>
@@ -381,83 +384,147 @@
       'screen-standard': {
         title: 'Standard Laptop Screen Replacement',
         low: 150,
-        high: 300
+        high: 300,
+        partsLow: 80,
+        partsHigh: 140,
+        laborLow: 70,
+        laborHigh: 160
       },
       'screen-touch': {
         title: 'Touch-Screen / High-Resolution Laptop Screen Replacement',
         low: 220,
-        high: 380
+        high: 380,
+        partsLow: 140,
+        partsHigh: 220,
+        laborLow: 80,
+        laborHigh: 160
       },
       'battery': {
         title: 'Laptop Battery Replacement',
         low: 90,
-        high: 150
+        high: 150,
+        partsLow: 35,
+        partsHigh: 70,
+        laborLow: 55,
+        laborHigh: 80
       },
       'storage': {
         title: 'Laptop Storage / SSD Replacement',
         low: 150,
-        high: 250
+        high: 250,
+        partsLow: 50,
+        partsHigh: 100,
+        laborLow: 100,
+        laborHigh: 150
       },
       'keyboard': {
         title: 'Laptop Keyboard Replacement',
         low: 100,
-        high: 200
+        high: 200,
+        partsLow: 20,
+        partsHigh: 50,
+        laborLow: 80,
+        laborHigh: 150
       },
       'trackpad': {
         title: 'Laptop Trackpad Replacement',
         low: 100,
-        high: 220
+        high: 220,
+        partsLow: 20,
+        partsHigh: 90,
+        laborLow: 80,
+        laborHigh: 130
       },
       'wifi-card': {
         title: 'WiFi / Bluetooth Card Replacement',
         low: 75,
-        high: 125
+        high: 125,
+        partsLow: 15,
+        partsHigh: 30,
+        laborLow: 60,
+        laborHigh: 95
       },
       'cmos-battery': {
         title: 'CMOS Battery Replacement',
         low: 50,
-        high: 90
+        high: 90,
+        partsLow: 5,
+        partsHigh: 15,
+        laborLow: 45,
+        laborHigh: 75
       },
       'case-bezel': {
         title: 'Case / Bezel Replacement',
         low: 100,
-        high: 250
+        high: 250,
+        partsLow: 25,
+        partsHigh: 120,
+        laborLow: 75,
+        laborHigh: 130
       },
       'desktop-ram': {
         title: 'Desktop RAM Upgrade',
         low: 200,
         high: 650,
+        partsLow: 150,
+        partsHigh: 550,
+        laborLow: 50,
+        laborHigh: 100,
         note: 'RAM pricing is unusually volatile right now due to an industry-wide memory shortage \u2014 this range covers both DDR4 and DDR5 kits. Exact price confirmed at time of order.'
       },
       'desktop-storage': {
         title: 'Desktop Storage / SSD Replacement',
         low: 150,
-        high: 250
+        high: 250,
+        partsLow: 50,
+        partsHigh: 100,
+        laborLow: 100,
+        laborHigh: 150
       },
       'desktop-psu': {
         title: 'Desktop Power Supply Replacement',
         low: 150,
-        high: 225
+        high: 225,
+        partsLow: 50,
+        partsHigh: 100,
+        laborLow: 100,
+        laborHigh: 125
       },
       'desktop-cmos': {
         title: 'Desktop CMOS Battery Replacement',
         low: 40,
-        high: 70
+        high: 70,
+        partsLow: 5,
+        partsHigh: 15,
+        laborLow: 35,
+        laborHigh: 55
       },
       'desktop-optical': {
         title: 'Optical Drive Replacement',
         low: 75,
-        high: 150
+        high: 150,
+        partsLow: 20,
+        partsHigh: 60,
+        laborLow: 55,
+        laborHigh: 90
       },
       'desktop-os': {
         title: 'OS Install / Clean Reinstall',
         low: 100,
-        high: 180
+        high: 180,
+        partsLow: 0,
+        partsHigh: 0,
+        laborLow: 100,
+        laborHigh: 180
       },
       'desktop-ports': {
         title: 'Port / Header Troubleshooting',
         low: 50,
-        high: 100
+        high: 100,
+        partsLow: 0,
+        partsHigh: 0,
+        laborLow: 50,
+        laborHigh: 100
       }
     };
 
@@ -474,9 +541,23 @@
         }
         result.classList.add('show');
         var note = choice.note || 'Typical range based on current parts pricing and labor. Final price confirmed after we take a look at your device.';
+        var breakdown = '';
+        if (choice.partsHigh > 0) {
+          breakdown =
+            '<div class="quote-breakdown">' +
+            '<span>Parts (taxable): $' + choice.partsLow + ' \u2013 $' + choice.partsHigh + '</span>' +
+            '<span>Labor &amp; Travel (tax-exempt): $' + choice.laborLow + ' \u2013 $' + choice.laborHigh + '</span>' +
+            '</div>';
+        } else {
+          breakdown =
+            '<div class="quote-breakdown">' +
+            '<span>Labor &amp; Travel (tax-exempt): $' + choice.laborLow + ' \u2013 $' + choice.laborHigh + ' \u2014 no parts required</span>' +
+            '</div>';
+        }
         result.innerHTML =
           '<div class="quote-title">' + choice.title + '</div>' +
           '<div class="quote-price">$' + choice.low + ' \u2013 $' + choice.high + '</div>' +
+          breakdown +
           '<div class="quote-note">' + note + '</div>';
       });
     }
@@ -485,7 +566,7 @@
   // ---- Zip code service-area gate ----
   (function () {
     var ATLANTA_CENTER = { lat: 33.7490, lng: -84.3880 };
-    var MAX_SERVICE_RADIUS_MILES = 18; // keep in sync with the map's circle radius
+    var MAX_SERVICE_RADIUS_MILES = 10; // keep in sync with the map's circle radius
 
     var zipGate = document.getElementById('zip-gate');
     var zipInput = document.getElementById('zip-input');
