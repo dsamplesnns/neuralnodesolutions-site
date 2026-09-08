@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Nova Legal | Neural Node Solutions</title>
+<link rel="icon" type="image/png" href="logo.png">
+<meta name="description" content="Privacy Policy and Terms of Service for the Math Nova Android app by Neural Node Solutions.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #f5f6fb;
+    --surface: #ffffff;
+    --surface-2: #eef0f8;
+    --ink: #1a1d2c;
+    --ink-soft: #4c5170;
+    --ink-faint: #7d81a0;
+    --accent: #33409e;
+    --accent-ink: #ffffff;
+    --accent-soft: #e6e8fb;
+    --accent-soft-ink: #2b3480;
+    --border: #dfe1ee;
+    --rule: #cfd2e6;
+    --code-bg: #eef0f8;
+    --shadow: 0 1px 2px rgba(26, 29, 44, 0.04), 0 8px 24px rgba(26, 29, 44, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1020;
+      --surface: #161a2e;
+      --surface-2: #1d2138;
+      --ink: #e9eaf6;
+      --ink-soft: #b4b7d1;
+      --ink-faint: #7f83a3;
+      --accent: #9aabff;
+      --accent-ink: #10142a;
+      --accent-soft: #262c4d;
+      --accent-soft-ink: #c3ccff;
+      --border: #2a2f4d;
+      --rule: #2a2f4d;
+      --code-bg: #1d2138;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 28px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0e1020;
+    --surface: #161a2e;
+    --surface-2: #1d2138;
+    --ink: #e9eaf6;
+    --ink-soft: #b4b7d1;
+    --ink-faint: #7f83a3;
+    --accent: #9aabff;
+    --accent-ink: #10142a;
+    --accent-soft: #262c4d;
+    --accent-soft-ink: #c3ccff;
+    --border: #2a2f4d;
+    --rule: #2a2f4d;
+    --code-bg: #1d2138;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 28px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+  }
+
+  /* ---- Top bar ---- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .topbar .mark {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    flex: none;
+    display: block;
+  }
+  .topbar .name {
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+  }
+  .topbar .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    margin-left: 2px;
+  }
+  .topbar nav {
+    margin-left: auto;
+    display: flex;
+    gap: 18px;
+  }
+  .topbar nav a {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  /* ---- Header block ---- */
+  .doc-header {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 28px;
+  }
+  .doc-header .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  .doc-header h1 {
+    font-size: clamp(28px, 4.4vw, 40px);
+    line-height: 1.12;
+    margin: 0 0 14px;
+  }
+  .doc-header .dek {
+    color: var(--ink-soft);
+    font-size: 16px;
+    max-width: 62ch;
+    margin: 0 0 22px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin-bottom: 26px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--ink-soft);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+  .chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: none; }
+
+  .summary-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+  .summary-box h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 14px;
+    color: var(--ink-soft);
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 700;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px 20px;
+  }
+  .summary-item { display: flex; gap: 10px; align-items: flex-start; }
+  .summary-item .ico {
+    flex: none;
+    width: 26px; height: 26px;
+    border-radius: 7px;
+    background: var(--accent-soft);
+    color: var(--accent-soft-ink);
+    display: grid; place-items: center;
+    font-size: 13px;
+    margin-top: 1px;
+  }
+  .summary-item p { margin: 0; font-size: 13.6px; color: var(--ink-soft); }
+  .summary-item strong { color: var(--ink); display: block; font-size: 13.8px; margin-bottom: 1px; }
+
+  /* ---- Section nav pills ---- */
+  .jumpnav {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px 8px;
+    display: flex;
+    gap: 10px;
+  }
+  .jumpnav a {
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    color: var(--ink-soft);
+    background: var(--surface);
+  }
+  .jumpnav a.is-primary { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+
+  /* ---- Document body ---- */
+  main { max-width: 760px; margin: 0 auto; padding: 20px 24px 80px; }
+
+  .doc-part {
+    padding-top: 44px;
+    scroll-margin-top: 18px;
+  }
+  .doc-part > .part-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+  .doc-part > h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 18px;
+  }
+  .doc-part > .effective {
+    color: var(--ink-faint);
+    font-size: 13.5px;
+    margin: 14px 0 0;
+  }
+
+  section.clause { padding-top: 32px; scroll-margin-top: 18px; }
+  section.clause h2 {
+    font-size: 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0 0 12px;
+  }
+  section.clause h2 .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  section.clause h3 {
+    font-size: 15.5px;
+    margin: 20px 0 8px;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 700;
+  }
+  section.clause p { margin: 0 0 14px; color: var(--ink); max-width: 66ch; }
+  section.clause ul, section.clause ol { margin: 0 0 14px; padding-left: 22px; max-width: 64ch; }
+  section.clause li { margin-bottom: 6px; }
+  section.clause p:last-child, section.clause ul:last-child { margin-bottom: 0; }
+
+  code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.86em;
+    background: var(--code-bg);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+  }
+
+  .callout {
+    background: var(--accent-soft);
+    color: var(--accent-soft-ink);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+    margin: 16px 0;
+    max-width: 64ch;
+  }
+  .callout strong { color: inherit; }
+
+  hr.section-divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 56px 0 0;
+  }
+
+  footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    border-top: 1px solid var(--border);
+    color: var(--ink-faint);
+    font-size: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  footer a { color: var(--ink-soft); }
+
+  @media (max-width: 560px) {
+    .topbar nav { gap: 12px; }
+    .jumpnav { flex-direction: column; }
+    .jumpnav a { text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <img class="mark" src="logo.png" alt="Neural Node Solutions logo" width="32" height="32" />
+  <div class="name">Neural Node Solutions</div>
+  <div class="tag">Math Nova</div>
+  <nav>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#terms">Terms of Service</a>
+  </nav>
+</div>
+
+<div class="doc-header">
+  <p class="eyebrow">Legal documentation</p>
+  <h1>Privacy Policy &amp; Terms of Service</h1>
+  <p class="dek">These pages cover the Math Nova Android app, published by Neural Node Solutions. Read the summary below for the short version, or jump straight to a section.</p>
+
+  <div class="meta-row">
+    <span class="chip"><span class="dot"></span>Made for kids</span>
+    <span class="chip"><span class="dot"></span>Ads by Google AdMob</span>
+    <span class="chip"><span class="dot"></span>No account required</span>
+    <span class="chip"><span class="dot"></span>Scores stay on your device</span>
+    <span class="chip"><span class="dot"></span>No in-app purchases</span>
+  </div>
+
+  <div class="summary-box">
+    <h2>Plain-language summary</h2>
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span class="ico">🎮</span>
+        <p><strong>No sign-up, no account</strong>Math Nova doesn't ask for an email, name, or login to play.</p>
+      </div>
+      <div class="summary-item">
+        <span class="ico">💾</span>
+        <p><strong>Leaderboard stays local</strong>The name you type for your high-score list is saved only on your own device, never sent to us or anyone else.</p>
+      </div>
+      <div class="summary-item">
+        <span class="ico">📺</span>
+        <p><strong>Ads come from Google AdMob</strong>We show banner, interstitial, and rewarded video ads. Requests are marked as child-directed, so ads aren't personalized using a child's activity.</p>
+      </div>
+      <div class="summary-item">
+        <span class="ico">🔒</span>
+        <p><strong>One permission: internet</strong>That's the only device permission Math Nova asks for, and it's used to load ads.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="jumpnav">
+  <a href="#privacy" class="is-primary">Privacy Policy</a>
+  <a href="#terms">Terms of Service</a>
+</div>
+
+<main>
+
+  <!-- ============================= PRIVACY POLICY ============================= -->
+  <article id="privacy" class="doc-part">
+    <p class="part-label">Part One</p>
+    <h1>Privacy Policy</h1>
+    <p class="effective">Effective September 7, 2026 &nbsp;·&nbsp; Applies to the Math Nova Android app (package <code>com.neuralnodesolutions.mathnova</code>)</p>
+
+    <section class="clause" id="privacy-1">
+      <h2><span class="num">1.</span> Overview</h2>
+      <p>Neural Node Solutions ("we," "us," or "our") publishes Math Nova, a math-practice arcade game for Android. This policy explains what information Math Nova handles, how it's used, and the choices available to you and your family. It's written for parents and guardians as well as players, since Math Nova is made for kids.</p>
+    </section>
+
+    <section class="clause" id="privacy-2">
+      <h2><span class="num">2.</span> Information We Collect</h2>
+
+      <h3>2.1 Information you type into the app</h3>
+      <p>When you set a new high score, Math Nova asks for a name (up to 12 characters) to show on your personal leaderboard. That name, along with your score, is saved using Android's standard on-device storage (SharedPreferences) — the same mechanism apps use to remember settings. It is <strong>never transmitted to us, to Google, or to any other player</strong>. Your leaderboard is private to your device; Math Nova has no shared or online leaderboard.</p>
+      <p>We recommend not entering a real full name, and parents may want to help younger players choose a nickname instead.</p>
+
+      <h3>2.2 Information collected automatically for ads</h3>
+      <p>Math Nova shows ads through Google AdMob to keep the game free. To deliver and measure those ads, Google's advertising software running inside the app may automatically process technical information such as:</p>
+      <ul>
+        <li>Device and app identifiers used for ad delivery and frequency capping</li>
+        <li>General, approximate location inferred from IP address (not precise GPS location — Math Nova never requests location permission)</li>
+        <li>Ad interaction data, such as which ad was shown and whether it was viewed or tapped</li>
+      </ul>
+      <p>This processing is performed by Google, governed by Google's own privacy practices — see Section 4. Neural Node Solutions does not separately collect, store, or have access to this advertising data.</p>
+
+      <h3>2.3 What we do <em>not</em> collect</h3>
+      <p>Math Nova has no account creation, no login, and requests no permissions beyond internet access. We do not collect email addresses, precise location, contacts, photos, camera or microphone access, or any other personal information directly.</p>
+    </section>
+
+    <section class="clause" id="privacy-3">
+      <h2><span class="num">3.</span> How Information Is Used</h2>
+      <p>The leaderboard name and score you enter are used for exactly one purpose: displaying your own top-10 list back to you on that device. Advertising data handled by Google is used to select and measure ads shown in the app, subject to the child-directed request settings described in Section 4. We do not use any information to build profiles of individual players, and we do not sell information — we don't have any of your personal information to sell.</p>
+    </section>
+
+    <section class="clause" id="privacy-4">
+      <h2><span class="num">4.</span> Advertising &amp; Third-Party Services</h2>
+      <p>Math Nova's only advertising partner is Google AdMob. Every ad request Math Nova sends is explicitly flagged for <strong>child-directed treatment</strong> and capped at a <strong>"G" maximum content rating</strong>. In practice, this means:</p>
+      <ul>
+        <li>Ads are not personalized based on a player's browsing or app activity</li>
+        <li>Ad content is restricted to Google's general-audience rating</li>
+        <li>Google limits the data it collects and uses accordingly, per its Families Ad Program policies</li>
+      </ul>
+      <p>You can read more about how Google's advertising products handle information here:</p>
+      <ul>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+        <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites and apps that use our services</a></li>
+        <li><a href="https://support.google.com/admob/answer/6223431" target="_blank" rel="noopener">AdMob and the Families Ad Program</a></li>
+      </ul>
+      <p>Math Nova does not currently use any advertising mediation networks beyond Google AdMob directly.</p>
+    </section>
+
+    <section class="clause" id="privacy-5">
+      <h2><span class="num">5.</span> Children's Privacy</h2>
+      <p>Math Nova is made for kids. We do not knowingly collect personal information directly from any player, including children under 13, and the app's design intentionally avoids doing so: no account, no email, no location permission, and a leaderboard that never leaves the device.</p>
+      <p>The only third-party data handling in the app is Google's ad-serving process described in Section 4, which is configured for child-directed treatment on every ad request. If you're a parent or guardian and have questions about this, or believe information about your child has been handled in a way that concerns you, contact us using the details in Section 10 and we'll look into it promptly.</p>
+    </section>
+
+    <section class="clause" id="privacy-6">
+      <h2><span class="num">6.</span> How Information Is Stored</h2>
+      <p>Leaderboard data lives only in the app's private storage on your device. If your device has Android's automatic backup enabled, this data may be included in <em>your own</em> personal Google Account backup, the same way any app's settings are — Neural Node Solutions has no access to that backup. We operate no server or database that stores player information; there is nothing on our end to store.</p>
+    </section>
+
+    <section class="clause" id="privacy-7">
+      <h2><span class="num">7.</span> Your Choices</h2>
+      <ul>
+        <li><strong>Clear your leaderboard:</strong> clear Math Nova's app data or storage from Android Settings, or uninstall the app, to permanently remove everything saved locally.</li>
+        <li><strong>Limit ad data:</strong> your device's Android settings include an "Opt out of Ads Personalization" control (Settings → Privacy → Ads on most devices) that applies across apps, including Math Nova.</li>
+        <li><strong>Ask us a question:</strong> contact Section 10 at any time — we don't have an account system, but we're glad to help.</li>
+      </ul>
+    </section>
+
+    <section class="clause" id="privacy-8">
+      <h2><span class="num">8.</span> Changes to This Policy</h2>
+      <p>If we make material changes to this policy, we'll update the effective date at the top of this page. Since Math Nova has no accounts or email collection, we won't be able to notify you directly — we encourage checking back here occasionally, especially before a major app update.</p>
+    </section>
+
+    <section class="clause" id="privacy-9">
+      <h2><span class="num">9.</span> Contact Us</h2>
+      <p>Questions about this Privacy Policy, or about Math Nova generally, can be sent to:</p>
+      <p class="mono">support@neuralnodesolutions.com</p>
+    </section>
+  </article>
+
+  <hr class="section-divider" />
+
+  <!-- ============================= TERMS OF SERVICE ============================= -->
+  <article id="terms" class="doc-part">
+    <p class="part-label">Part Two</p>
+    <h1>Terms of Service</h1>
+    <p class="effective">Effective September 7, 2026 &nbsp;·&nbsp; Applies to the Math Nova Android app (package <code>com.neuralnodesolutions.mathnova</code>)</p>
+
+    <section class="clause" id="terms-1">
+      <h2><span class="num">1.</span> Acceptance of Terms</h2>
+      <p>By downloading, installing, or playing Math Nova, you agree to these Terms of Service. If you're under 18, a parent or guardian should review these terms with you. If you don't agree, please don't use the app.</p>
+    </section>
+
+    <section class="clause" id="terms-2">
+      <h2><span class="num">2.</span> License to Use the App</h2>
+      <p>Neural Node Solutions grants you a personal, non-exclusive, non-transferable, revocable license to install and use Math Nova on devices you own or control, for your own personal, non-commercial entertainment. You may not copy, modify, reverse-engineer, redistribute, or sell the app or its content, except where applicable law gives you the right to do so despite this limitation.</p>
+    </section>
+
+    <section class="clause" id="terms-3">
+      <h2><span class="num">3.</span> Who Math Nova Is For</h2>
+      <p>Math Nova is designed to be appropriate for children and is intended for a general audience including kids. Parents and guardians are encouraged to be involved in and aware of their children's use of the app, including the leaderboard name field described below.</p>
+    </section>
+
+    <section class="clause" id="terms-4">
+      <h2><span class="num">4.</span> The Leaderboard Feature</h2>
+      <p>Math Nova lets you save a name alongside your high scores. This leaderboard is <strong>private to your own device</strong> — it is never uploaded, shared with other players, or made public. Because of that, we don't moderate leaderboard names; the responsibility for what's entered sits with the player (or their parent/guardian). We recommend using a nickname rather than a real full name.</p>
+    </section>
+
+    <section class="clause" id="terms-5">
+      <h2><span class="num">5.</span> Advertising &amp; No In-App Purchases</h2>
+      <p>Math Nova is free to play and supported by ads served through Google AdMob, as described in our <a href="#privacy-4">Privacy Policy</a>. The app currently offers no in-app purchases. Playing a rewarded video ad is always optional and only ever offers a small in-game benefit (such as continuing a run) — it's never required to keep playing.</p>
+    </section>
+
+    <section class="clause" id="terms-6">
+      <h2><span class="num">6.</span> Acceptable Use</h2>
+      <p>You agree not to use Math Nova to:</p>
+      <ul>
+        <li>Attempt to interfere with, disable, or reverse-engineer any part of the app or its ad delivery</li>
+        <li>Use automated tools (bots, scripts) to interact with the app</li>
+        <li>Violate any applicable law while using the app</li>
+      </ul>
+    </section>
+
+    <section class="clause" id="terms-7">
+      <h2><span class="num">7.</span> Intellectual Property</h2>
+      <p>Math Nova's code, artwork, design, and the "Math Nova" name are owned by Neural Node Solutions. Nothing in these terms transfers any of that ownership to you — you're only receiving the limited license described in Section 2.</p>
+    </section>
+
+    <section class="clause" id="terms-8">
+      <h2><span class="num">8.</span> Disclaimer of Warranties</h2>
+      <p>Math Nova is provided "as is" and "as available," without warranties of any kind, whether express or implied, including — to the extent permitted by law — implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We don't guarantee the app will always be available, error-free, or uninterrupted.</p>
+    </section>
+
+    <section class="clause" id="terms-9">
+      <h2><span class="num">9.</span> Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, Neural Node Solutions won't be liable for any indirect, incidental, or consequential damages arising from your use of Math Nova. Nothing in these terms limits any liability that cannot be limited under applicable law, including, where relevant, consumer protection law that protects you as a player.</p>
+    </section>
+
+    <section class="clause" id="terms-10">
+      <h2><span class="num">10.</span> Changes to the App or These Terms</h2>
+      <p>We may update Math Nova — adding levels, modes, or other changes — and may update these Terms from time to time. Continuing to use the app after an update means you accept the revised terms. We'll update the effective date above when that happens.</p>
+    </section>
+
+    <section class="clause" id="terms-11">
+      <h2><span class="num">11.</span> Termination</h2>
+      <p>You can stop using Math Nova at any time by uninstalling it. We may suspend or discontinue the app, or any feature of it (including specific ad formats), at any time.</p>
+    </section>
+
+    <section class="clause" id="terms-12">
+      <h2><span class="num">12.</span> Governing Law</h2>
+      <p>These terms are governed by the laws of the State of Georgia, without regard to its conflict-of-law principles. Any dispute arising under these terms shall be brought exclusively in the state or federal courts located in Fulton County, Georgia, and you consent to personal jurisdiction and venue there, except where local consumer protection law gives you additional rights that can't be waived.</p>
+    </section>
+
+    <section class="clause" id="terms-13">
+      <h2><span class="num">13.</span> Contact Us</h2>
+      <p>Questions about these Terms can be sent to:</p>
+      <p class="mono">support@neuralnodesolutions.com</p>
+    </section>
+  </article>
+
+</main>
+
+<footer>
+  <span>© 2026 Neural Node Solutions</span>
+  <span><a href="#privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="#terms">Terms of Service</a> &nbsp;·&nbsp; <a href="mailto:support@neuralnodesolutions.com">support@neuralnodesolutions.com</a></span>
+</footer>
+
+</body>
+</html>
